@@ -7,7 +7,7 @@ test('has title', async ({page}) => {
 })
 
 test('get more information link', async ({page}) => {
-  await page.goto("https://example.com");
+  await page.goto('https://example.com');
 
   await page.getByRole('link', { name: 'Learn more' }).click();
 
