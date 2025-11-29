@@ -1,0 +1,19 @@
+---
+applyTo: "**"
+---
+
+# Playwright Actions Guideline
+
+Playwright performs a range of actions on the elements.
+
+| Action              | Description                                                                                                                       | Example                                                                                                                                                                                     |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Click**           | Performs a click on an element. You can also specify which mouse button to use, or add modifiers.                                 | `await page.getByRole('button').click();` <br/> `await page.getByRole('button').click({ button: 'right', modifiers: ['Shift'] });`                                                          |
+| **Fill**            | Fills an input element with text.                                                                                                 | `await page.getByLabel('Username').fill('JohnDoe');`                                                                                                                                        |
+| **Press**           | Simulates a single key press on the keyboard. You can find a full list of keys at https://playwright.dev/docs/api/class-keyboard. | `await page.getByRole('textbox').press('Enter');`                                                                                                                                           |
+| **Type**            | Types text into an element, one character at a time. This can be useful for simulating user typing.                               | `await page.getByLabel('Password').type('my-secret', { delay: 100 });`                                                                                                                      |
+| **Check / Uncheck** | Checks or unchecks a checkbox or radio button.                                                                                    | `await page.getByLabel('Subscribe').check();` <br/> `await page.getByLabel('Subscribe').uncheck();`                                                                                         |
+| **Select Option**   | Selects one or more options from a `<select>` element.                                                                            | `await page.getByLabel('Choose a color').selectOption('blue');` <br/> `await page.getByLabel('Choose your toppings').selectOption(['cheese', 'tomatoes']);`                                 |
+| **Hover**           | Hovers the mouse over an element.                                                                                                 | `await page.getByRole('link', { name: 'Services' }).hover();`                                                                                                                               |
+| **Drag and Drop**   | Performs a drag-and-drop operation.                                                                                               | `await page.locator('#item-to-drag').dragTo(page.locator('#drop-target'));`                                                                                                                 |
+| **Upload Files**    | Uploads one or more files to an `<input type="file">` element.                                                                    | `await page.getByLabel('Upload picture').setInputFiles('path/to/my-image.jpg');` <br/> `await page.getByLabel('Upload documents').setInputFiles(['path/to/doc1.pdf', 'path/to/doc2.pdf']);` |
